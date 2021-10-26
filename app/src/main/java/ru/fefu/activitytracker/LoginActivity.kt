@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
-class LoginActivity: AppCompatActivity(R.layout.activity_login) {
+class LoginActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -15,8 +15,9 @@ class LoginActivity: AppCompatActivity(R.layout.activity_login) {
         val backLoginLayout = findViewById<MaterialButton>(R.id.invisibleButtonLogin)
 
         backLoginLayout.setOnClickListener{
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, WelcomeActivity::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 }

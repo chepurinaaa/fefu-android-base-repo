@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
-class RegistrationActivity: AppCompatActivity(R.layout.activity_registration) {
+class RegistrationActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,8 +15,9 @@ class RegistrationActivity: AppCompatActivity(R.layout.activity_registration) {
         val backLayout = findViewById<MaterialButton>(R.id.invisibleButton)
 
         backLayout.setOnClickListener{
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, WelcomeActivity::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 }

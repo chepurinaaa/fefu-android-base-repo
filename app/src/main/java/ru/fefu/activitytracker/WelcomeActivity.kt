@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
-class WelcomeActivity: AppCompatActivity(R.layout.activity_welcome) {
+class WelcomeActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
