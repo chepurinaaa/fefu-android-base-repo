@@ -1,9 +1,8 @@
 package ru.fefu.activitytracker
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
+import androidx.appcompat.widget.Toolbar
 
 class LoginActivity: AppCompatActivity() {
 
@@ -12,11 +11,9 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val backLoginLayout = findViewById<MaterialButton>(R.id.invisibleButtonLogin)
+        val backLayout = findViewById<Toolbar>(R.id.backLayout)
 
-        backLoginLayout.setOnClickListener{
-//            val intent = Intent(this, WelcomeActivity::class.java)
-//            startActivity(intent)
+        backLayout.setNavigationOnClickListener {
             finish()
         }
     }

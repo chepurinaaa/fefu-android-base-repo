@@ -1,9 +1,8 @@
 package ru.fefu.activitytracker
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
+import androidx.appcompat.widget.Toolbar
 
 class RegistrationActivity: AppCompatActivity() {
 
@@ -12,12 +11,11 @@ class RegistrationActivity: AppCompatActivity() {
 
         setContentView(R.layout.activity_registration)
 
-        val backLayout = findViewById<MaterialButton>(R.id.invisibleButton)
+        val backLayout = findViewById<Toolbar>(R.id.backLayout)
 
-        backLayout.setOnClickListener{
-//            val intent = Intent(this, WelcomeActivity::class.java)
-//            startActivity(intent)
+        backLayout.setNavigationOnClickListener {
             finish()
         }
     }
+
 }
