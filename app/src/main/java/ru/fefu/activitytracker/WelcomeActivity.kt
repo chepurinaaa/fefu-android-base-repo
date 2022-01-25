@@ -2,28 +2,28 @@ package ru.fefu.activitytracker
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import ru.fefu.activitytracker.R
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
+import ru.fefu.activitytracker.databinding.ActivityWelcomeBinding
 
 class WelcomeActivity: AppCompatActivity() {
 
+    private lateinit var binding: ActivityWelcomeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_welcome)
+        binding = ActivityWelcomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val buttonRegistration = findViewById<MaterialButton>(R.id.registrationView)
-
-        buttonRegistration.setOnClickListener{
-            val intent = Intent(this, RegistrationActivity::class.java)
-            startActivity(intent)
+        binding.registrationView.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
         }
 
-        val buttonLogin = findViewById<MaterialButton>(R.id.haveAnAccountView)
-
-        buttonLogin.setOnClickListener{
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        binding.haveAnAccountView.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
+
     }
 }

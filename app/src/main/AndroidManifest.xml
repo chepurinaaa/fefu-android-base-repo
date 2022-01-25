@@ -10,14 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Activity" >
         
-        <activity android:name=".WelcomeActivity"
-            android:exported="true">
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:label="Фрагменты">
 
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
 
+        </activity>
+
+        <activity android:name=".WelcomeActivity"
+            android:exported="true">
         </activity>
 
         <activity android:name=".RegistrationActivity"

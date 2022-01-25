@@ -22,5 +22,16 @@
     <string name="label_activity">Активность</string>
     <string name="label_profile">Профиль</string>
     <string name="label_my_activities">Мои активности</string>
+    <string name="label_my">Мои</string>
     <string name="label_users_activities">Активности пользователей</string>
+    <string name="label_users">Пользователей</string>
+    <string name="label_Time">Время</string>
+    <string name="label_time">время</string>
+    <string name="label_distance">Расстояние</string>
+    <string name="label_start">Старт</string>
+    <string name="label_finish">Финиш</string>
+    <string name="label_or">|</string>
+    <string name="label_comment">Комментарий</string>
+    <string name="label_user">Пользователь</string>
+    <string name="label_date">Дата</string>
 </resources>
