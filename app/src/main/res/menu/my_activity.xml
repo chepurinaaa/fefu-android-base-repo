@@ -11,6 +11,6 @@
     <item
         android:id="@+id/icon_to_share"
         android:icon="@drawable/ic_share"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:title="" />
 </menu>

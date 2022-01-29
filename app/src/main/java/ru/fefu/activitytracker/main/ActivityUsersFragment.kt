@@ -1,44 +1,53 @@
 package ru.fefu.activitytracker.main
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.fefu.activitytracker.ItemAdapter
-import ru.fefu.activitytracker.ListItem
-import ru.fefu.activitytracker.R
 import ru.fefu.activitytracker.databinding.ActivityFragmentUsersActivitiesBinding
 
-class ActivityUsersFragment : BaseFragment<ActivityFragmentUsersActivitiesBinding>(R.layout.activity_fragment_users_activities) {
-    private val usersListRepository = UsersListRepository()
-    private val adapterItems = ItemAdapter(usersListRepository.getItem())
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+class ActivityUsersFragment : Fragment() {
+    private lateinit var binding: ActivityFragmentUsersActivitiesBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = ActivityFragmentUsersActivitiesBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        with(binding.rcView) {
-            adapter = adapterItems
-            layoutManager = LinearLayoutManager(requireContext())
+        val adapter = parentFragment?.let {
+            ActivityListAdapter(
+                getActivityData(),
+                it.parentFragmentManager
+            )
         }
+        binding.rvActivities.adapter = adapter
+        binding.rvActivities.layoutManager = LinearLayoutManager(requireContext())
 
-        adapterItems.setItemClickListener {
-            val manager = activity?.supportFragmentManager?.findFragmentByTag("activityFragment")?.childFragmentManager
-            manager?.beginTransaction()?.apply {
-                manager.fragments.forEach(::hide)
-                replace(
-                    R.id.activity_fragment_flow_container,
-                    UsersActivityDetailsFragment.newInstance(usersListRepository.getItem()[it] as ListItem.Item),
-                    "tadUsers"
-                )
-                addToBackStack(null)
-                commit()
-            }
-        }
     }
 
+    companion object {
 
+        fun newInstance(): ActivityUsersFragment {
+            val bundle = Bundle()
+            val fragment = ActivityUsersFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
 
+    }
+
+    private fun getActivityData(): List<ActivityData> {
+        return listOf(
+            ActivityData("5 км", "2 часа", "Велосипед", "@username1", "20.04.2021"),
+            ActivityData("6 км", "3 часа", "Велосипед", "@username2", "25.02.2021"),
+        )
+    }
 }
