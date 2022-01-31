@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".RegistrationActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/backLayout"
@@ -229,7 +230,8 @@
 
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/registrationView"/>
+                app:layout_constraintTop_toBottomOf="@id/registrationView"
+                tools:ignore="MissingConstraints"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
